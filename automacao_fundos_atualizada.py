@@ -2,6 +2,7 @@ import pandas as pd
 import customtkinter as ctk
 from tkinter import ttk, messagebox, filedialog
 from datetime import datetime
+import os
 
 # Configurações da interface
 ctk.set_appearance_mode("dark")
@@ -22,6 +23,7 @@ def selecionar_arquivo_csv():
     caminho = filedialog.askopenfilename(filetypes=[("CSV Files", "*.csv")])
     if caminho:
         caminho_csv = caminho
+        messagebox.showinfo("Arquivo Selecionado", f"Arquivo selecionado com sucesso:\n{os.path.basename(caminho_csv)}")
         carregar_anos_do_csv()
         btn_executar.configure(state='normal')
         btn_exportar.configure(state='normal')
